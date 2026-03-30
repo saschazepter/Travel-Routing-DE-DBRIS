@@ -510,12 +510,22 @@ for my $connection ( $ris->connections ) {
 			next;
 		}
 		elsif ( $segment->direction ) {
-			printf( "${output_bold}%s${output_reset} → %s  %s\n",
-				$segment->train_mid, $segment->direction,
-				$show_full_route ? q{} : format_occupancy($segment) );
+			printf(
+				"${output_bold}%s%s${output_reset} → %s  %s%s\n",
+				$segment->is_cancelled ? $output_critical : q{},
+				$segment->train_mid,
+				$segment->direction,
+				$show_full_route       ? q{} : format_occupancy($segment),
+				$segment->is_cancelled ? '  (cancelled)' : q{}
+			);
 		}
 		else {
-			printf( "${output_bold}%s${output_reset}\n", $segment->train_long );
+			printf(
+				"${output_bold}%s%s${output_reset}%s\n",
+				$segment->is_cancelled ? $output_critical : q{},
+				$segment->train_long,
+				$segment->is_cancelled ? '  (cancelled)' : q{}
+			);
 		}
 
 		printf(
