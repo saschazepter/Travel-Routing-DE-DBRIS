@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e
+
+VERSION="$1"
+test -n "${VERSION}"
+
+git checkout main
+git pull
+git checkout "${VERSION}"
+git submodule update --init
+
+docker build --no-cache -t dbris:${VERSION} .
+docker build -t dbris:latest .
+docker tag dbris:${VERSION} derfnull/dbris:${VERSION}
+docker tag dbris:latest derfnull/dbris:latest
+docker push derfnull/dbris:${VERSION}
+docker push derfnull/dbris:latest
