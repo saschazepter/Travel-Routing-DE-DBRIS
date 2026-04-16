@@ -10,9 +10,4 @@ git pull
 git checkout "${VERSION}"
 git submodule update --init
 
-docker build --no-cache -t dbris:${VERSION} .
-docker build -t dbris:latest .
-docker tag dbris:${VERSION} derfnull/dbris:${VERSION}
-docker tag dbris:latest derfnull/dbris:latest
-docker push derfnull/dbris:${VERSION}
-docker push derfnull/dbris:latest
+docker buildx build --push --no-cache --platform linux/amd64,linux/arm64 --tag derfnull/dbris:${VERSION} --tag derfnull/dbris:latest --build-arg=dbf_version=${VERSION} .
