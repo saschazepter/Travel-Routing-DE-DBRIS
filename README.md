@@ -22,7 +22,7 @@ You have five installation options:
 * finalrewind.org APT repository for Debian-based distributions
 * Installing the latest release from CPAN
 * Installation from source
-* Using a Docker image
+* Using a Docker image (amd64 or arm64)
 
 Except for Docker, __dbris__ is available in your PATH after installation.
 You can run `dbris --version` to verify this. Documentation is available via
@@ -167,9 +167,9 @@ perl -Ilocal/lib/perl5 -Ilib bin/dbris --version
 
 ### Running dbris via Docker
 
-A dbris image is available on Docker Hub. It is intended for testing purposes:
-due to the latencies involved in spawning a container for each dbris invocation
-and lack of caching, it is less convenient for day-to-day usage.
+**dbris** images for amd64 and arm64 are available on Docker Hub.
+They are intended for testing purposes:
+due to the latencies involved in spawning a container for each dbris invocation and lack of caching, they are less convenient for day-to-day use.
 
 Installation:
 
@@ -177,8 +177,7 @@ Installation:
 docker pull derfnull/dbris:latest
 ```
 
-Use it by prefixing dbris commands with `docker run --rm
-derfnull/dbris:latest`, like so:
+Use the image by prefixing dbris commands with `docker run --rm derfnull/dbris:latest`, like so:
 
 ```
 docker run --rm derfnull/dbris:latest --version
