@@ -190,6 +190,7 @@ Documentation is not available in this image. Please refer to the
 
 Mirrors of the dbris / Travel::Routing::DE::DBRIS repository are available at
 
-* [Codeberg](https://codeberg.org/derf/Travel-Routing-DE-DBRIS/)
-* [Finalrewind](https://git.finalrewind.org/derf/Travel-Routing-DE-DBRIS/)
+* [Codeberg](https://codeberg.org/derf/Travel-Routing-DE-DBRIS)
+* [ESS](https://ess.cs.uos.de/git/bkf/Travel-Routing-DE-DBRIS)
+* [Finalrewind](https://git.finalrewind.org/derf/Travel-Routing-DE-DBRIS)
 * [GitHub](https://github.com/derf/travel-routing-de-dbris)
